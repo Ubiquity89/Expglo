@@ -1,0 +1,13 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import './custom.css';
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}

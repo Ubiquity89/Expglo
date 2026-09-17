@@ -62,9 +62,9 @@ def get_header(active='home'):
           +91 12345 67890
         </span>
       </div>
-      <div class="flex items-center space-x-4"><span class="text-slate-600">â€¢</span>
+      <div class="flex items-center space-x-4"><span class="text-slate-600">-</span>
         <a class="hover:text-white transition" href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
-        <span class="text-slate-600">â€¢</span>
+        <span class="text-slate-600">-</span>
         <a class="hover:text-white transition" href="https://twitter.com" target="_blank" rel="noreferrer">Twitter / X</a>
       </div>
     </div>
@@ -102,7 +102,7 @@ def get_header(active='home'):
                   <span class="text-[10px] text-slate-400">Founder & Investor Syndicate</span>
                 </a>
                 <a class="block px-4 py-2.5 text-xs font-semibold rounded-xl text-slate-700 hover:bg-emerald-50 hover:text-brand-green transition" href="businesses.html#school">
-                  <span class="block font-bold text-blue-600">EXPGLO School</span>
+                  <span class="block font-bold text-blue-600">EXPGLO Startup School</span>
                   <span class="text-[10px] text-slate-400">Mastery & Mentorship</span>
                 </a>
                 <a class="block px-4 py-2.5 text-xs font-semibold rounded-xl text-slate-700 hover:bg-emerald-50 hover:text-brand-green transition" href="businesses.html#sutrasync">
@@ -150,9 +150,9 @@ def get_header(active='home'):
             <a class="{is_act('home')}" href="index.html">Home</a>
             <a class="{is_act('about')}" href="about.html">About Us</a>
             <a class="{is_act('businesses')}" href="businesses.html">Our Businesses</a>
-            <a class="pl-4 text-xs font-semibold text-brand-gold" href="fund.html">â†³ EXPGLO FUND</a>
-            <a class="pl-4 text-xs font-semibold text-blue-600" href="businesses.html#school">â†³ EXPGLO SCHOOL</a>
-            <a class="pl-4 text-xs font-semibold text-indigo-600" href="businesses.html#sutrasync">â†³ SUTRASYNC</a>
+            <a class="pl-4 text-xs font-semibold text-brand-gold" href="fund.html"> EXPGLO FUND</a>
+            <a class="pl-4 text-xs font-semibold text-blue-600" href="businesses.html#school"> EXPGLO STARTUP SCHOOL</a>
+            <a class="pl-4 text-xs font-semibold text-indigo-600" href="businesses.html#sutrasync"> SUTRASYNC</a>
             <a class="{is_act('events')}" href="events.html">Events</a>
             <a class="{is_act('news')}" href="news.html">News & Updates</a>
             <a class="{is_act('careers')}" href="careers.html">Careers</a>
@@ -160,7 +160,7 @@ def get_header(active='home'):
         </div>
         <div class="pt-6 border-t border-slate-100 space-y-3">
             <a class="block w-full text-center py-3 rounded-full text-xs font-bold text-white bg-brand-green" href="fund.html">EXPGLO FUND -></a>
-            <p class="text-[11px] text-center text-slate-400">Â© 2026 EXPGLO BUSINESS PRIVATE LIMITED</p>
+            <p class="text-[11px] text-center text-slate-400">Copyright 2026 EXPGLO BUSINESS PRIVATE LIMITED</p>
         </div>
       </div>
     </div>
@@ -169,7 +169,7 @@ def get_header(active='home'):
 
 def get_footer():
     return """
-  <!-- FOOTER (PRD Â§16 - Dark green background, 5 Columns) -->
+  <!-- FOOTER (PRD Section16 - Dark green background, 5 Columns) -->
   <footer class="bg-brand-darkgreen text-slate-300 pt-16 pb-12 border-t border-emerald-950" data-purpose="site-footer">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-14 border-b border-emerald-900/70">
@@ -196,7 +196,7 @@ def get_footer():
           <h4 class="text-xs font-extrabold text-white uppercase tracking-wider text-brand-gold">Our Businesses</h4>
           <ul class="space-y-2 text-xs text-emerald-100/90 font-medium">
             <li><a class="hover:text-brand-gold transition" href="fund.html">EXPGLO FUND</a></li>
-            <li><a class="hover:text-brand-gold transition" href="businesses.html#school">EXPGLO SCHOOL</a></li>
+            <li><a class="hover:text-brand-gold transition" href="businesses.html#school">EXPGLO STARTUP SCHOOL</a></li>
             <li><a class="hover:text-brand-gold transition" href="businesses.html#sutrasync">SUTRASYNC</a></li>
           </ul>
         </div>
@@ -236,17 +236,17 @@ def get_footer():
           <p class="text-xs text-emerald-100/80"><strong class="text-white">Website:</strong> expglobusiness.com</p>
           <div class="pt-2 flex items-center space-x-3 text-brand-gold text-xs">
             <a href="https://linkedin.com" target="_blank" rel="noreferrer" class="hover:text-white transition">LinkedIn</a>
-            <span>â€¢</span>
+            <span>-</span>
             <a href="https://twitter.com" target="_blank" rel="noreferrer" class="hover:text-white transition">Twitter / X</a>
-            <span>â€¢</span></div>
+            <span>-</span></div>
         </div>
       </div>
 
       <div class="pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-emerald-200/60 gap-4">
-        <div>Â© 2026 EXPGLO BUSINESS PRIVATE LIMITED. All Rights Reserved.</div>
+        <div>Copyright 2026 EXPGLO BUSINESS PRIVATE LIMITED. All Rights Reserved.</div>
         <div class="flex items-center space-x-4">
           <span>CIN Registered Entity</span>
-          <span>â€¢</span>
+          <span>-</span>
           <span>Ministry of Corporate Affairs, Govt of India</span>
         </div>
       </div>

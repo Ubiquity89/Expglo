@@ -8,6 +8,23 @@
   }
 }
 
+.about-section-image {
+  display: block;
+  transition:
+    transform 0.45s ease,
+    box-shadow 0.45s ease,
+    filter 0.45s ease;
+  transform-origin: center;
+  will-change: transform, filter, box-shadow;
+}
+
+body .about-image-card:hover .about-section-image,
+body .about-section-image:hover {
+  transform: scale(1.05) !important;
+  filter: saturate(1.08) contrast(1.03) !important;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.14) !important;
+}
+
 .animate-spin-slow {
   animation: spin-slow 24s linear infinite;
 }
@@ -44,9 +61,270 @@
   -webkit-backdrop-filter: blur(8px);
 }
 
+.workspace-image {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.hierarchy-units {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (max-width: 639px) {
+  .hierarchy-units {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.business-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 440px;
+  isolation: isolate;
+  border-top-width: 3px;
+  transition:
+    transform 0.45s var(--exp-motion-ease),
+    box-shadow 0.45s ease,
+    border-color 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.business-card::before {
+  position: absolute;
+  top: 0;
+  left: 12%;
+  width: 76%;
+  height: 160px;
+  border-radius: 50%;
+  content: "";
+  opacity: 0.12;
+  filter: blur(34px);
+  z-index: -1;
+}
+
+.business-card-fund {
+  border-top-color: #1e5e3a;
+}
+.business-card-fund::before {
+  background: #d4a017;
+}
+.business-card-school {
+  border-top-color: #2563eb;
+}
+.business-card-school::before {
+  background: #60a5fa;
+}
+.business-card-sutrasync {
+  border-top-color: #4f46e5;
+}
+.business-card-sutrasync::before {
+  background: #818cf8;
+}
+
+.business-card:hover {
+  transform: translateY(-8px) scale(1.015);
+}
+
+.business-card-fund:hover {
+  border-color: #86b79a;
+  box-shadow: 0 25px 60px rgba(30, 94, 58, 0.14);
+}
+
+.business-card-school:hover {
+  border-color: #93c5fd;
+  box-shadow: 0 25px 60px rgba(37, 99, 235, 0.13);
+}
+
+.business-card-sutrasync:hover {
+  border-color: #a5b4fc;
+  box-shadow: 0 25px 60px rgba(79, 70, 229, 0.13);
+}
+
+.business-icon {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.45s var(--exp-motion-ease),
+    box-shadow 0.45s ease;
+}
+
+.business-icon::after {
+  position: absolute;
+  inset: 12%;
+  border-radius: 999px;
+  content: "";
+  background: currentColor;
+  opacity: 0.12;
+  filter: blur(12px);
+  z-index: -1;
+}
+
+.business-card:hover .business-icon {
+  transform: scale(1.1) rotate(-4deg);
+}
+
+.business-card-fund:hover .business-icon {
+  box-shadow: 0 12px 30px rgba(30, 94, 58, 0.18);
+}
+.business-card-school:hover .business-icon {
+  box-shadow: 0 12px 30px rgba(37, 99, 235, 0.18);
+}
+.business-card-sutrasync:hover .business-icon {
+  box-shadow: 0 12px 30px rgba(79, 70, 229, 0.18);
+}
+
+.business-arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.business-card:hover .business-arrow {
+  transform: translateX(7px);
+}
+
+[data-animate].business-card.animate-ready.is-visible {
+  animation: business-card-reveal 0.6s var(--exp-motion-ease) both;
+}
+
+.business-card:nth-child(1) {
+  animation-delay: 0s;
+}
+.business-card:nth-child(2) {
+  animation-delay: 0.1s;
+}
+.business-card:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+@keyframes business-card-reveal {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .business-card,
+  .business-card:hover,
+  .business-card:hover .business-icon {
+    transform: none;
+  }
+}
+
 #mobile-menu-drawer,
 #mobile-menu-drawer > div {
   height: 100vh;
+}
+
+/* Lightweight motion layer: preserves the current design and content while adding subtle UI polish */
+:root {
+  --exp-motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --exp-motion-duration: 650ms;
+}
+
+header,
+nav,
+section,
+article,
+footer,
+button,
+a,
+img,
+li,
+.card,
+[class*="card"],
+[class*="feature"],
+[class*="stat"],
+[class*="business"],
+[class*="news"],
+[class*="event"],
+[class*="team"],
+[class*="cta"],
+.glass-pill,
+.glass-card {
+  transition:
+    transform var(--exp-motion-duration) var(--exp-motion-ease),
+    opacity var(--exp-motion-duration) var(--exp-motion-ease),
+    box-shadow var(--exp-motion-duration) var(--exp-motion-ease),
+    filter var(--exp-motion-duration) var(--exp-motion-ease),
+    border-color var(--exp-motion-duration) var(--exp-motion-ease),
+    background-color var(--exp-motion-duration) var(--exp-motion-ease);
+}
+
+[data-animate] {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+  will-change: opacity, transform, filter;
+}
+
+[data-animate].animate-ready {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+[data-animate].animate-ready.is-visible {
+  animation: reveal-up var(--exp-motion-duration) var(--exp-motion-ease) both;
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+html:not(.no-motion) body a:hover,
+html:not(.no-motion) body button:hover,
+html:not(.no-motion) body img:hover,
+html:not(.no-motion) body .glass-card:hover,
+html:not(.no-motion) body .glass-pill:hover,
+html:not(.no-motion) body [class*="card"]:hover,
+html:not(.no-motion) body [class*="feature"]:hover,
+html:not(.no-motion) body [class*="business"]:hover,
+html:not(.no-motion) body [class*="news"]:hover,
+html:not(.no-motion) body [class*="event"]:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.01);
+}
+
+html:not(.no-motion) .hero-section-float,
+html:not(.no-motion) [class*="float"] {
+  animation: gentle-float 8s ease-in-out infinite;
+}
+
+@keyframes gentle-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -8px, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  [data-animate].animate-ready,
+  [data-animate].animate-ready.is-visible {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* Custom Scrollbar */

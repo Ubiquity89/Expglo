@@ -1,4 +1,4 @@
-﻿# EXPGLO Full Multi-Page Website Generator
+# EXPGLO Full Multi-Page Website Generator
 import os
 from scripts.layout import get_head, get_header, get_footer
 

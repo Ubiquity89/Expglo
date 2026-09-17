@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link rel="icon" type="image/png" href="assets/images/logo.png" />
     <title>
       Building Businesses. Empowering Entrepreneurs. | EXPGLO BUSINESS PRIVATE
       LIMITED
@@ -32,30 +33,108 @@
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['"Plus Jakarta Sans"', "sans-serif"],
-            },
-            colors: {
-              brand: {
-                green: "#1E5E3A",
-                darkgreen: "#144329",
-                gold: "#D4A017",
-                accent: "#2563EB",
-                softblue: "#EBF4FE",
-                softmint: "#F0FDF4",
-              },
-            },
-          },
-        },
-      };
-    </script>
-    <link rel="stylesheet" href="assets/css/custom.css" />
-  </head>
+
+    <link rel="stylesheet" href="assets/css/tailwind.css" />
+<link rel="stylesheet" href="assets/css/custom.css" />
+  
+<style id="expglo-animations">
+  html { scroll-behavior: smooth; }
+
+  /* Subtle global motion - keeps the existing design intact */
+  .fx-reveal {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity .75s cubic-bezier(.22,1,.36,1), transform .75s cubic-bezier(.22,1,.36,1);
+    will-change: opacity, transform;
+  }
+  .fx-reveal.fx-visible { opacity: 1; transform: translateY(0); }
+
+  .fx-slide-left { opacity: 1; transform: translateX(0); transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1); }
+  .fx-slide-right { opacity: 1; transform: translateX(0); transition: opacity .8s cubic-bezier(.22,1,.36,1), transform .8s cubic-bezier(.22,1,.36,1); }
+  .fx-slide-left.fx-visible, .fx-slide-right.fx-visible { opacity: 1; transform: translateX(0); }
+
+  /* Hero entrance */
+  .hero-fx > * { opacity: 1; transform: translateY(0); }
+  .hero-fx > *:nth-child(1) { animation-delay: .08s; }
+  .hero-fx > *:nth-child(2) { animation-delay: .18s; }
+  .hero-fx > *:nth-child(3) { animation-delay: .30s; }
+  .hero-fx > *:nth-child(4) { animation-delay: .42s; }
+  .hero-fx > *:nth-child(5) { animation-delay: .54s; }
+  @keyframes heroIn { to { opacity: 1; transform: translateY(0); } }
+
+  /* Buttons / links */
+  a, button { transition-timing-function: cubic-bezier(.22,1,.36,1); }
+  .fx-button:hover { transform: translateY(-3px) scale(1.015); }
+  .fx-button:active { transform: translateY(-1px) scale(.99); }
+
+  /* Cards get a very small lift - no layout change */
+  .fx-card {
+    transition: transform .4s cubic-bezier(.22,1,.36,1), box-shadow .4s ease, border-color .3s ease;
+  }
+  .fx-card:hover { transform: translateY(-7px); }
+
+  /* ABOUT IMAGE: pronounced but elegant bulge-out hover */
+  .about-image-card {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: transform .55s cubic-bezier(.22,1,.36,1), box-shadow .55s ease;
+  }
+  .about-image-card:hover {
+    transform: translateY(-8px) scale(1.035) rotateX(1deg) rotateY(-1deg);
+    box-shadow: 0 30px 65px rgba(15,23,42,.22) !important;
+    z-index: 5;
+  }
+  .about-image-card .about-section-image {
+    transform: scale(1);
+    transition: transform .8s cubic-bezier(.22,1,.36,1), filter .5s ease;
+    will-change: transform;
+  }
+  .about-image-card:hover .about-section-image {
+    transform: scale(1.10) translateZ(28px);
+    filter: saturate(1.06) contrast(1.02);
+  }
+  .about-image-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    box-shadow: inset 0 0 0 0 rgba(255,255,255,0);
+    transition: box-shadow .5s ease;
+  }
+  .about-image-card:hover::after {
+    box-shadow: inset 0 0 0 2px rgba(255,255,255,.35);
+  }
+
+  /* Floating badge beside About image */
+  .about-image-card + div {
+    transition: transform .5s cubic-bezier(.22,1,.36,1), box-shadow .5s ease;
+  }
+  .about-image-card:hover + div {
+    transform: translateY(-5px) scale(1.025);
+  }
+
+  /* Icons gently react on card hover */
+  .fx-card:hover svg { transform: scale(1.06); }
+  .fx-card svg { transition: transform .35s cubic-bezier(.22,1,.36,1); }
+
+  /* Section headings */
+  .fx-heading { transition: transform .5s ease; }
+  .fx-heading:hover { transform: translateY(-2px); }
+
+  /* Respect reduced-motion accessibility settings */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      scroll-behavior: auto !important;
+      animation-duration: .01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: .01ms !important;
+    }
+    .fx-reveal, .fx-slide-left, .fx-slide-right { opacity: 1 !important; transform: none !important; }
+  }
+</style>
+
+</head>
   <body
     class="bg-white text-slate-800 font-sans antialiased overflow-x-hidden selection:bg-brand-gold selection:text-white"
   >
@@ -78,7 +157,7 @@
                 fill-rule="evenodd"
               ></path>
             </svg>
-            Hyderabad, Telangana, India
+            Nagla Padma Gwalior Road, Agra 282001, UP
           </span>
           <span class="flex items-center gap-1.5">
             <svg
@@ -108,22 +187,19 @@
             +91 9258482377
           </span>
         </div>
-        <div class="flex items-center space-x-4"><span class="text-slate-600">â€¢</span>
+        <div class="flex items-center space-x-4">
           <a
-            class="hover:text-white transition"
-            href="https://linkedin.com"
-            target="_blank"
-            rel="noreferrer"
-            >LinkedIn</a
+            class="text-xs text-brand-gold hover:text-white transition font-medium flex items-center gap-1"
+            href="admin.html"
           >
-          <span class="text-slate-600">â€¢</span>
-          <a
-            class="hover:text-white transition"
-            href="https://twitter.com"
-            target="_blank"
-            rel="noreferrer"
-            >Twitter / X</a
-          >
+            
+                
+          
+          </a>
+          <span class="text-slate-600"></span>
+          <a class="hover:text-white transition" href="https://www.linkedin.com/company/yms-group-of-it-solution/posts/?viewAsMember=true" target="_blank" rel="noreferrer" aria-label="LinkedIn"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5.2 3.5A2.2 2.2 0 1 1 5.2 8a2.2 2.2 0 0 1 0-4.5ZM3.4 9.7h3.6V21H3.4V9.7Zm5.8 0h3.5v1.55h.05c.49-.92 1.69-1.9 3.48-1.9 3.72 0 4.4 2.45 4.4 5.64V21h-3.6v-5.32c0-1.27-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9.2V9.7Z" /></svg></a>
+<a class="hover:text-white transition" href="https://www.facebook.com/profile.php?id=61586244133393" target="_blank" rel="noreferrer" aria-label="Facebook"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.7 21v-8h2.7l.4-3h-3.1V8.1c0-.87.24-1.46 1.5-1.46h1.7V4a22.5 22.5 0 0 0-2.47-.13c-2.45 0-4.13 1.5-4.13 4.25V10H7.5v3h2.8v8h3.4Z" /></svg></a>
+<a class="hover:text-white transition" href="https://www.instagram.com/expglobusiness/" target="_blank" rel="noreferrer" aria-label="Instagram"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" /></svg></a>
         </div>
       </div>
     </aside>
@@ -198,7 +274,7 @@
                     href="businesses.html#school"
                   >
                     <span class="block font-bold text-blue-600"
-                      >EXPGLO School</span
+                      >EXPGLO Startup School</span
                     >
                     <span class="text-[10px] text-slate-400"
                       >Mastery & Mentorship</span
@@ -315,17 +391,17 @@
               <a
                 class="pl-4 text-xs font-semibold text-brand-gold"
                 href="fund.html"
-                >â†³ EXPGLO FUND</a
+                > EXPGLO FUND</a
               >
               <a
                 class="pl-4 text-xs font-semibold text-blue-600"
                 href="businesses.html#school"
-                >â†³ EXPGLO SCHOOL</a
+                > EXPGLO STARTUP SCHOOL</a
               >
               <a
                 class="pl-4 text-xs font-semibold text-indigo-600"
                 href="businesses.html#sutrasync"
-                >â†³ SUTRASYNC</a
+                > SUTRASYNC</a
               >
               <a class="hover:text-brand-green" href="events.html">Events</a>
               <a class="hover:text-brand-green" href="news.html"
@@ -334,7 +410,36 @@
               <a class="hover:text-brand-green" href="careers.html">Careers</a>
               <a class="hover:text-brand-green" href="contact.html"
                 >Contact Us</a
-              ><div class="hidden sm:flex items-center gap-3 pl-2">
+              >
+              <a
+                class="text-xs font-semibold text-brand-gold pt-2"
+                href="admin.html"
+                >Admin Dashboard</a
+              >
+            </nav>
+          </div>
+          <div class="pt-6 border-t border-slate-100 space-y-3">
+<a
+                class="px-8 py-4 rounded-full text-sm font-bold text-slate-900 bg-white hover:bg-slate-50 border border-slate-200 transition shadow-sm flex items-center gap-2"
+                href="contact.html?type=partner"
+              >
+                <span>Partner With Us</span>
+                <svg
+                  class="w-4 h-4 text-brand-green"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  ></path>
+                </svg>
+              </a>
+
+              <div class="hidden sm:flex items-center gap-3 pl-2">
                 <div
                   class="w-12 h-12 rounded-full bg-emerald-100 flex items-center justify-center text-brand-green shadow-sm"
                 >
@@ -413,16 +518,18 @@
     class="pointer-events-none absolute
            left-1/2 top-1/2 z-[2]
            -translate-x-1/2 -translate-y-1/2
-           w-[92vw] max-w-[1250px]
-           h-[78%]"
+           w-[72vw] max-w-[980px]
+           h-[52%]
+           rounded-[50%]"
     style="
       background:radial-gradient(
         ellipse at center,
-        rgba(255,255,255,.92) 0%,
-        rgba(255,255,255,.82) 34%,
-        rgba(255,255,255,.58) 55%,
-        rgba(255,255,255,0) 78%
+        rgba(255,255,255,.99) 0%,
+        rgba(255,255,255,.94) 42%,
+        rgba(255,255,255,.62) 66%,
+        rgba(255,255,255,0) 82%
       );
+      filter:blur(16px);
     "
   ></div>
 
@@ -489,9 +596,10 @@
                text-sm sm:text-base lg:text-lg
                leading-relaxed"
       >
-        EXPGLO Business Private Limited is building a powerful ecosystem
-        that supports startups, entrepreneurs and businesses through
-        funding, education, technology and growth opportunities.
+      
+
+
+      
       </p>
 
 
@@ -634,7 +742,7 @@
 
 <!-- BUSINESS STATS BAR -->
 
-    <!-- BUSINESS STATS BAR (PRD Â§8) -->
+    <!-- BUSINESS STATS BAR (PRD Section8) -->
     <section
       class="relative -mt-8 z-30 px-4 sm:px-6 lg:px-8"
       data-purpose="business-stats"
@@ -771,7 +879,7 @@
       </div>
     </section>
 
-    <!-- ABOUT EXPGLO SECTION (PRD Â§9) -->
+    <!-- ABOUT EXPGLO SECTION (PRD Section9) -->
     <section class="py-24 bg-slate-50 relative overflow-hidden" id="about">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
@@ -779,11 +887,11 @@
         >
           <div class="lg:col-span-6 relative">
             <div
-              class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white"
+              class="about-image-card group relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white"
             >
               <img
                 alt="EXPGLO Innovation Campus"
-                class="w-full h-[480px] object-cover"
+                class="about-section-image w-full h-[480px] object-cover"
                 src="https://imgs.search.brave.com/pl9J17glkPfP-e26Enw_QT8_5zdO7X8jZZnC31bY9Ow/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pbWcu/bWFnbmlmaWMuY29t/L2ZyZWUtcGhvdG8v/dGVhbXdvcmstbWVl/dGluZy13aXRoLWJ1/c2luZXNzLXBlb3Bs/ZV8yMy0yMTQ4ODI1/OTQyLmpwZz9zZW10/PWFpc19oeWJyaWQm/dz03NDAmcT04MA"
               />
               <div
@@ -870,7 +978,7 @@
                 </div>
                 <span class="text-sm font-semibold text-slate-800"
                   ><strong>What the company does:</strong> Seed capital
-                  syndicates, EXPGLO School cohorts, MVP engineering, and
+                  syndicates, EXPGLO Startup School cohorts, MVP engineering, and
                   founder summits.</span
                 >
               </div>
@@ -929,7 +1037,7 @@
                 class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full text-sm font-bold text-white bg-slate-900 hover:bg-brand-green transition shadow-lg shadow-slate-900/20"
                 href="about.html"
               >
-                <span>Know More About Us â†’</span>
+                <span>Know More About Us </span>
               </a>
             </div>
           </div>
@@ -937,7 +1045,7 @@
       </div>
     </section>
 
-    <!-- BUSINESS ECOSYSTEM (PRD Â§10) -->
+    <!-- BUSINESS ECOSYSTEM (PRD Section10) -->
     <section class="py-24 bg-white relative" id="businesses">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
@@ -952,7 +1060,7 @@
             Our Business Ecosystem
           </h2>
           <p class="text-slate-600 text-sm sm:text-base">
-            Multiple initiatives. One vision â€” empowering entrepreneurs and
+            Multiple initiatives. One vision - empowering entrepreneurs and
             businesses.
           </p>
         </div>
@@ -960,112 +1068,75 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <!-- Business Card 01: EXPGLO FUND -->
           <div
-            class="group bg-slate-50/70 hover:bg-white rounded-3xl p-8 border border-slate-100 hover:border-emerald-300 transition duration-300 hover:shadow-2xl hover:shadow-emerald-500/10 flex flex-col justify-between"
+            class="group business-card business-card-fund bg-slate-50/70 hover:bg-white rounded-3xl p-6 border border-slate-100 flex flex-col justify-between"
           >
             <div class="space-y-4">
-              <div
-                class="w-14 h-14 rounded-2xl bg-emerald-100 text-brand-green flex items-center justify-center group-hover:scale-110 group-hover:bg-brand-green group-hover:text-white transition duration-300"
-              >
-                <svg
-                  class="w-7 h-7"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                  ></path>
-                </svg>
-              </div>
-              <div>
-                <span
-                  class="inline-block text-[10px] font-extrabold uppercase tracking-wider text-brand-gold bg-amber-50 px-2 py-0.5 rounded-full mb-1"
-                  >Founder Ã— Investor Ecosystem</span
-                >
-                <h3
-                  class="text-xl font-extrabold text-slate-900 group-hover:text-brand-green transition"
-                >
-                  EXPGLO FUND
-                </h3>
+              <div class="business-card-heading flex items-center gap-4">
+                <div class="business-icon w-16 h-16 shrink-0 rounded-2xl bg-emerald-100 text-brand-green flex items-center justify-center">
+                  <img class="h-14 w-14 object-contain" src="assets/images/expglofund.png" alt="EXPGLO Fund logo" />
+                </div>
+                <div class="min-w-0">
+                  <span class="inline-block text-[10px] font-extrabold uppercase tracking-wider text-brand-gold bg-amber-50 px-2 py-0.5 rounded-full mb-1">Founder x Investor Ecosystem</span>
+                  <h3 class="text-xl font-extrabold text-slate-900 group-hover:text-brand-green transition">EXPGLO FUND</h3>
+                </div>
               </div>
               <p class="text-slate-600 text-sm leading-relaxed">
                 A platform designed to help founders present their startups,
                 connect with investors and explore funding opportunities.
               </p>
               <ul class="text-xs text-slate-500 space-y-1.5 pt-2">
-                <li class="flex items-center gap-1.5">âœ“ Startup Pitching</li>
-                <li class="flex items-center gap-1.5">âœ“ Investor Network</li>
+                <li class="flex items-center gap-1.5"> Startup Pitching</li>
+                <li class="flex items-center gap-1.5"> Investor Network</li>
                 <li class="flex items-center gap-1.5">
-                  âœ“ Funding Opportunities
+                   Funding Opportunities
                 </li>
                 <li class="flex items-center gap-1.5">
-                  âœ“ Founderâ€“Investor Meetings
+                   Founder-Investor Meetings
                 </li>
                 <li class="flex items-center gap-1.5">
-                  âœ“ Business Connections
+                   Business Connections
                 </li>
               </ul>
             </div>
             <div class="pt-6 border-t border-slate-200/60 mt-6">
               <a
                 class="inline-flex items-center gap-2 text-xs font-bold text-brand-darkgreen group-hover:text-brand-green transition"
-                href="businesses.html#fund"
+                href="https://expglofund.com/"
+                target="_blank"
               >
-                <span>Explore EXPGLO FUND â†’</span>
+                <span>Explore EXPGLO FUND <span class="business-arrow" aria-hidden="true"></span></span>
               </a>
             </div>
           </div>
 
-          <!-- Business Card 02: EXPGLO SCHOOL -->
+          <!-- Business Card 02: EXPGLO STARTUP SCHOOL -->
           <div
-            class="group bg-slate-50/70 hover:bg-white rounded-3xl p-8 border border-slate-100 hover:border-blue-300 transition duration-300 hover:shadow-2xl hover:shadow-blue-500/10 flex flex-col justify-between"
+            class="group business-card business-card-school bg-slate-50/70 hover:bg-white rounded-3xl p-6 border border-slate-100 flex flex-col justify-between"
           >
             <div class="space-y-4">
-              <div
-                class="w-14 h-14 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition duration-300"
-              >
-                <svg
-                  class="w-7 h-7"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                  ></path>
-                </svg>
-              </div>
-              <div>
-                <span
-                  class="inline-block text-[10px] font-extrabold uppercase tracking-wider text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full mb-1"
-                  >Turning Ideas Into Opportunities.</span
-                >
-                <h3
-                  class="text-xl font-extrabold text-slate-900 group-hover:text-blue-600 transition"
-                >
-                  EXPGLO SCHOOL
-                </h3>
+              <div class="business-card-heading flex items-center gap-4">
+                <div class="business-icon w-16 h-16 shrink-0 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center">
+                  <img class="h-14 w-14 object-contain" src="assets/images/expglo startup school.png" alt="EXPGLO Startup School logo" />
+                </div>
+                <div class="min-w-0">
+                  <span class="inline-block text-[10px] font-extrabold uppercase tracking-wider text-blue-600 bg-blue-50 px-2 py-0.5 rounded-full mb-1">Turning Ideas Into Opportunities.</span>
+                  <h3 class="text-xl font-extrabold text-slate-900 group-hover:text-blue-600 transition">EXPGLO STARTUP SCHOOL</h3>
+                </div>
               </div>
               <p class="text-slate-600 text-sm leading-relaxed">
                 A startup learning and development platform designed for
                 aspiring entrepreneurs, students and founders.
               </p>
               <ul class="text-xs text-slate-500 space-y-1.5 pt-2">
-                <li class="flex items-center gap-1.5">âœ“ Startup Education</li>
+                <li class="flex items-center gap-1.5"> Startup Education</li>
                 <li class="flex items-center gap-1.5">
-                  âœ“ Business Fundamentals
+                   Business Fundamentals
                 </li>
                 <li class="flex items-center gap-1.5">
-                  âœ“ Mentorship & Practical Programs
+                   Mentorship & Practical Programs
                 </li>
-                <li class="flex items-center gap-1.5">âœ“ Pitch Preparation</li>
-                <li class="flex items-center gap-1.5">âœ“ Fundraising Support</li>
+                <li class="flex items-center gap-1.5"> Pitch Preparation</li>
+                <li class="flex items-center gap-1.5"> Fundraising Support</li>
               </ul>
             </div>
             <div class="pt-6 border-t border-slate-200/60 mt-6">
@@ -1073,43 +1144,24 @@
                 class="inline-flex items-center gap-2 text-xs font-bold text-blue-700 group-hover:text-blue-600 transition"
                 href="businesses.html#school"
               >
-                <span>Explore EXPGLO School â†’</span>
+                <span>Explore EXPGLO Startup School <span class="business-arrow" aria-hidden="true"></span></span>
               </a>
             </div>
           </div>
 
           <!-- Business Card 04: Global Syndicate -->
           <div
-            class="group bg-slate-50/70 hover:bg-white rounded-3xl p-8 border border-slate-100 hover:border-indigo-300 transition duration-300 hover:shadow-2xl hover:shadow-indigo-500/10 flex flex-col justify-between"
+            class="group business-card business-card-sutrasync bg-slate-50/70 hover:bg-white rounded-3xl p-6 border border-slate-100 flex flex-col justify-between"
           >
             <div class="space-y-4">
-              <div
-                class="w-14 h-14 rounded-2xl bg-indigo-100 text-indigo-600 flex items-center justify-center group-hover:scale-110 group-hover:bg-indigo-600 group-hover:text-white transition duration-300"
-              >
-                <svg
-                  class="w-7 h-7"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
-                  ></path>
-                </svg>
-              </div>
-              <div>
-                <span
-                  class="inline-block text-[10px] font-extrabold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-full mb-1"
-                  >Technology & Innovation</span
-                >
-                <h3
-                  class="text-xl font-extrabold text-slate-900 group-hover:text-indigo-600 transition"
-                >
-                  SutraSync Technologies
-                </h3>
+              <div class="business-card-heading flex items-center gap-4">
+                <div class="business-icon w-16 h-16 shrink-0 rounded-2xl bg-indigo-100 text-indigo-600 flex items-center justify-center">
+                  <img class="h-14 w-14 object-contain" src="assets/images/sutrasync.png" alt="SutraSync logo" />
+                </div>
+                <div class="min-w-0">
+                  <span class="inline-block text-[10px] font-extrabold uppercase tracking-wider text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded-full mb-1">Technology & Innovation</span>
+                  <h3 class="text-xl font-extrabold text-slate-900 group-hover:text-indigo-600 transition">SutraSync Technologies</h3>
+                </div>
               </div>
               <p class="text-slate-600 text-sm leading-relaxed">
                 Transforming ideas into scalable digital products with modern
@@ -1117,21 +1169,21 @@
               </p>
               <ul class="text-xs text-slate-500 space-y-1.5 pt-2">
                 <li class="flex items-center gap-1.5">
-                  âœ“ Custom Web & App Solutions
+                   Custom Web & App Solutions
                 </li>
-                <li class="flex items-center gap-1.5">âœ“ AI & Automation</li>
-                <li class="flex items-center gap-1.5">âœ“ UI/UX Design</li>
+                <li class="flex items-center gap-1.5"> AI & Automation</li>
+                <li class="flex items-center gap-1.5"> UI/UX Design</li>
                 <li class="flex items-center gap-1.5">
-                  âœ“ Digital Growth Solutions
+                   Digital Growth Solutions
                 </li>
               </ul>
             </div>
             <div class="pt-6 border-t border-slate-200/60 mt-6">
               <a
                 class="inline-flex items-center gap-2 text-xs font-bold text-slate-800 group-hover:text-indigo-600 transition"
-                href="businesses.html#sutrasync"
+                href="https://sutrasync.com/" target="_blank"
               >
-                <span>Explore Sutrasync Technologies â†’</span>
+                <span>Explore Sutrasync Technologies <span class="business-arrow" aria-hidden="true"></span></span>
               </a>
             </div>
           </div>
@@ -1139,7 +1191,7 @@
       </div>
     </section>
 
-    <!-- WHY EXPGLO SECTION (PRD Â§11 - 5 Pillars) -->
+    <!-- WHY EXPGLO SECTION (PRD Section11 - 5 Pillars) -->
     <section class="py-24 bg-slate-50 relative" data-purpose="why-expglo">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
@@ -1237,7 +1289,7 @@
       </div>
     </section>
 
-    <!-- EXPGLO EVENTS SECTION (PRD Â§13) -->
+    <!-- EXPGLO EVENTS SECTION (PRD Section13) -->
     <section class="py-20 bg-slate-900 text-white relative" id="events">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
@@ -1285,7 +1337,7 @@
       </div>
     </section>
 
-    <!-- NEWS & UPDATES (PRD Â§14) -->
+    <!-- NEWS & UPDATES (PRD Section14) -->
     <section class="py-24 bg-white" id="news">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
@@ -1311,7 +1363,7 @@
             class="inline-flex items-center gap-1 text-sm font-bold text-brand-green hover:text-brand-darkgreen transition mt-4 md:mt-0"
             href="news.html"
           >
-            <span>View All News â†’</span>
+            <span>View All News </span>
           </a>
         </div>
 
@@ -1322,7 +1374,7 @@
       </div>
     </section>
 
-    <!-- PARTNERSHIP CTA SECTION (PRD Â§15 - Strong yellow CTA) -->
+    <!-- PARTNERSHIP CTA SECTION (PRD Section15 - Strong yellow CTA) -->
     <section
       class="py-20 px-4 sm:px-6 lg:px-8 bg-amber-50/50"
       data-purpose="partnership-cta"
@@ -1347,7 +1399,7 @@
             >
               Join EXPGLO in building a stronger entrepreneurial ecosystem
               through partnerships, innovation and collaboration. Whether you
-              are an institution, college, mentor, or investor â€” let's connect.
+              are an institution, college, mentor, or investor - let's connect.
             </p>
 
             <div class="flex flex-wrap gap-4 pt-2">
@@ -1355,13 +1407,13 @@
                 class="px-8 py-4 rounded-full text-sm font-extrabold text-white bg-slate-950 hover:bg-slate-900 transition shadow-xl"
                 href="contact.html?type=partner"
               >
-                Partner With Us â†’
+                Partner With Us 
               </a>
               <a
                 class="px-8 py-4 rounded-full text-sm font-extrabold text-slate-950 bg-white hover:bg-slate-50 border border-amber-600/30 transition shadow-md"
                 href="contact.html"
               >
-                Contact Us â†’
+                Contact Us 
               </a>
             </div>
           </div>
@@ -1373,7 +1425,7 @@
       </div>
     </section>
 
-    <!-- FOOTER (PRD Â§16 - Dark green background, 5 Columns) -->
+    <!-- FOOTER (PRD Section16 - Dark green background, 5 Columns) -->
     <footer
       class="bg-brand-darkgreen text-slate-300 pt-16 pb-12 border-t border-emerald-950"
       data-purpose="site-footer"
@@ -1385,11 +1437,7 @@
           <!-- Col 1: Company -->
           <div class="lg:col-span-3 space-y-4">
             <div class="flex items-center gap-2">
-              <div
-                class="w-8 h-8 rounded-lg bg-emerald-500 text-brand-gold font-black flex items-center justify-center"
-              >
-                E
-              </div>
+              <div class="w-8 h-8 rounded-lg bg-white flex items-center justify-center overflow-hidden"><img src="assets/images/expglo.jpeg" alt="EXPGLO Business logo" class="h-full w-full object-contain" /></div>
               <span class="font-extrabold text-white text-lg tracking-tight"
                 >EXPGLO BUSINESS</span
               >
@@ -1435,37 +1483,15 @@
             </ul>
           </div>
 
-          <!-- Col 2: Our Businesses -->
-          <div class="lg:col-span-2 space-y-4">
-            <h4
-              class="text-xs font-extrabold text-white uppercase tracking-wider text-brand-gold"
-            >
-              Our Businesses
-            </h4>
+          <!-- Col 2: Our Businesses -->          <div class="lg:col-span-2 space-y-4">
+            <h4 class="text-xs font-extrabold text-white uppercase tracking-wider text-brand-gold">Our Businesses</h4>
             <ul class="space-y-2 text-xs text-emerald-100/90 font-medium">
-              <li>
-                <a class="hover:text-brand-gold transition" href="fund.html"
-                  >EXPGLO FUND</a
-                >
-              </li>
-              <li>
-                <a
-                  class="hover:text-brand-gold transition"
-                  href="businesses.html#school"
-                  >EXPGLO SCHOOL</a
-                >
-              </li>
-              <li>
-                <a
-                  class="hover:text-brand-gold transition"
-                  href="businesses.html#sutrasync"
-                  >Sutrasync Technologies</a
-                >
-              </li>
+              <li><a class="hover:text-brand-gold transition" href="businesses.html#fund">EXPGLO FUND</a></li>
+              <li><a class="hover:text-brand-gold transition" href="businesses.html#school">EXPGLO STARTUP SCHOOL</a></li>
+              <li><a class="hover:text-brand-gold transition" href="businesses.html#sutrasync">SUTRASYNC</a></li>
             </ul>
           </div>
-
-          <!-- Col 3: Resources -->
+<!-- Col 3: Resources -->
           <div class="lg:col-span-2 space-y-4">
             <h4
               class="text-xs font-extrabold text-white uppercase tracking-wider text-brand-gold"
@@ -1547,10 +1573,10 @@
             </h4>
             <p class="text-xs text-emerald-100/80 leading-relaxed">
               <strong class="text-white">Registered Office:</strong><br />
-              Hyderabad, Telangana, India
+              Nagla Padma Gwalior Road, Agra 282001, UP
             </p>
             <p class="text-xs text-emerald-100/80">
-              <strong class="text-white">Email:</strong> hello@expglo.business
+              <strong class="text-white">Email:</strong> info@expglobusiness.com
             </p>
             <p class="text-xs text-emerald-100/80">
               <strong class="text-white">Phone:</strong> +91 9258482377
@@ -1561,22 +1587,62 @@
             <div
               class="pt-2 flex items-center space-x-3 text-brand-gold text-xs"
             >
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noreferrer"
-                class="hover:text-white transition"
-                >LinkedIn</a
-              >
-              <span>â€¢</span>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noreferrer"
-                class="hover:text-white transition"
-                >Twitter / X</a
-              >
-              <span>â€¢</span></div>
+              <a class="hover:text-white transition" href="https://www.linkedin.com/company/yms-group-of-it-solution/posts/?viewAsMember=true" target="_blank" rel="noreferrer" aria-label="LinkedIn"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5.2 3.5A2.2 2.2 0 1 1 5.2 8a2.2 2.2 0 0 1 0-4.5ZM3.4 9.7h3.6V21H3.4V9.7Zm5.8 0h3.5v1.55h.05c.49-.92 1.69-1.9 3.48-1.9 3.72 0 4.4 2.45 4.4 5.64V21h-3.6v-5.32c0-1.27-.02-2.9-1.77-2.9-1.77 0-2.04 1.38-2.04 2.8V21H9.2V9.7Z" /></svg></a>
+<a class="hover:text-white transition" href="https://www.facebook.com/profile.php?id=61586244133393" target="_blank" rel="noreferrer" aria-label="Facebook"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.7 21v-8h2.7l.4-3h-3.1V8.1c0-.87.24-1.46 1.5-1.46h1.7V4a22.5 22.5 0 0 0-2.47-.13c-2.45 0-4.13 1.5-4.13 4.25V10H7.5v3h2.8v8h3.4Z" /></svg></a>
+<a class="hover:text-white transition" href="https://www.instagram.com/expglobusiness/" target="_blank" rel="noreferrer" aria-label="Instagram"><svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" /></svg></a>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-emerald-200/60 gap-4"
+        >
+          <div>
+            Copyright 2026 EXPGLO BUSINESS PRIVATE LIMITED. All Rights Reserved.
+          </div>
+          <div class="flex items-center space-x-4">
+            <span>CIN Registered Entity</span>
+            <span></span>
+            <span>Ministry of Corporate Affairs, Govt of India</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const events = EXPGLO_STORE.getEvents().slice(0, 3);
+        const eventsContainer = document.getElementById(
+          "home-events-container",
+        );
+        if (eventsContainer) {
+          eventsContainer.innerHTML = events
+            .map(
+              (ev) => `
+          <div class="bg-slate-800/80 rounded-3xl p-6 border border-slate-700/70 hover:border-brand-gold transition duration-300 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-wider bg-emerald-500/20 text-emerald-400">${ev.category}</span>
+                <span class="text-xs text-slate-400 font-medium">${ev.venue.split(",")[0]}</span>
+              </div>
+              <div class="flex gap-4 items-baseline">
+                <div class="text-center bg-slate-700/60 rounded-2xl px-3.5 py-2 border border-slate-600 shrink-0">
+                  <span class="block text-xl font-black text-brand-gold leading-tight">${ev.day}</span>
+                  <span class="block text-[10px] uppercase font-bold text-slate-300">${ev.month}</span>
+                </div>
+                <div>
+                  <h3 class="font-bold text-base text-white hover:text-brand-gold transition leading-snug">${ev.title}</h3>
+                  <p class="text-xs text-slate-400 mt-1 line-clamp-2">${ev.description}</p>
+                </div>
+              </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-700/60 flex items-center justify-between">
+              <span class="text-xs text-slate-400">${ev.time}</span>
+              <a class="text-xs font-bold text-brand-gold hover:text-white transition" href="events.html?id=${ev.id}">View Details </a>
+            </div>
           </div>
         `,
             )
@@ -1598,7 +1664,7 @@
               <div class="p-6 space-y-2.5">
                 <div class="flex items-center gap-3 text-xs text-slate-400 font-semibold">
                   <span>${item.date}</span>
-                  <span>â€¢</span>
+                  <span></span>
                   <span>${item.author}</span>
                 </div>
                 <h3 class="font-bold text-slate-900 text-lg group-hover:text-brand-green transition leading-snug">
@@ -1611,7 +1677,7 @@
             </div>
             <div class="px-6 pb-6 pt-2">
               <a class="text-xs font-bold text-brand-darkgreen group-hover:text-brand-green transition inline-flex items-center gap-1" href="news.html?id=${item.id}">
-                Read Article â†’
+                Read Article 
               </a>
             </div>
           </article>
@@ -1623,5 +1689,3 @@
     </script>
   </body>
 </html>
-
-

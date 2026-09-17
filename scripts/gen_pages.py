@@ -1,2 +1,2 @@
-﻿# Page generator script
+# Page generator script
 
