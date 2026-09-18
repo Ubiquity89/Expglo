@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 export default function TopUtilityBar() {
@@ -105,12 +105,7 @@ export default function TopUtilityBar() {
             </svg>
           </a>
           <span className="text-slate-600"></span>
-          <Link
-            to="/admin"
-            className="hover:text-white text-brand-gold font-semibold transition"
-          >
-            Admin Dashboard
-          </Link>
+
         </div>
       </div>
     </aside>

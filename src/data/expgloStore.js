@@ -34,7 +34,7 @@ export const EXPGLO_STORE = {
           "Term Sheet & Valuation Advisory",
         ],
         ctaText: "Explore EXPGLO FUND ",
-        link: "fund.html",
+        link: "/fund",
         externalUrl: "https://fund.expglobusiness.com",
       },
       {
@@ -54,7 +54,7 @@ export const EXPGLO_STORE = {
           "Direct Mentorship from Unicorn Operators",
         ],
         ctaText: "Explore EXPGLO Startup School ",
-        link: "businesses.html#school",
+        link: "/businesses#school",
       },
       {
         id: "labs",
@@ -73,7 +73,7 @@ export const EXPGLO_STORE = {
           "CTO-as-a-Service Advisory",
         ],
         ctaText: "Explore Catalyst Labs ",
-        link: "businesses.html#sutrasync",
+        link: "/businesses#sutrasync",
       },
       {
         id: "sutrasync",
@@ -91,7 +91,7 @@ export const EXPGLO_STORE = {
           "Digital Growth Solutions",
         ],
         ctaText: "Explore SutraSync ",
-        link: "businesses.html#sutrasync",
+        link: "/businesses#sutrasync",
       },
     ];
   },

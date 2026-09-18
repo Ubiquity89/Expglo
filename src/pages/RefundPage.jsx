@@ -45,7 +45,7 @@ export default function RefundPage() {
       </div>
     </section>
 
-    <!-- FOOTER (PRD Section16 - Dark green background, 5 Columns) -->
+    {/* FOOTER (PRD Section16 - Dark green background, 5 Columns) */}
     </main>
   );
 }

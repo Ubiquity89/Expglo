@@ -15,14 +15,20 @@ export default function AboutSection() {
             variants={fadeIn}
             className="lg:col-span-6 relative"
           >
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
-              <img
+            <motion.div 
+              className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white"
+              whileHover={{ scale: 1.03, rotate: 1 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+            >
+              <motion.img
                 alt="EXPGLO Innovation Campus"
                 className="w-full h-[480px] object-cover"
                 src="https://imgs.search.brave.com/pl9J17glkPfP-e26Enw_QT8_5zdO7X8jZZnC31bY9Ow/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pbWcu/bWFnbmlmaWMuY29t/L2ZyZWUtcGhvdG8v/dGVhbXdvcmstbWVl/dGluZy13aXRoLWJ1/c2luZXNzLXBlb3Bs/ZV8yMy0yMTQ4ODI1/OTQyLmpwZz9zZW10/PWFpc19oeWJyaWQm/dz03NDAmcT04MA"
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.4 }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent" />
-            </div>
+            </motion.div>
             <div className="absolute -bottom-8 -left-4 sm:left-6 bg-brand-darkgreen text-white p-6 rounded-3xl shadow-xl border-4 border-white max-w-xs">
               <div className="flex items-center gap-3">
                 <span className="text-4xl font-black text-brand-gold">05+</span>

@@ -1,4 +1,4 @@
-﻿import React, { useEffect } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export default function MobileMenu({ isOpen, onClose, currentPath }) {
@@ -121,13 +121,7 @@ export default function MobileMenu({ isOpen, onClose, currentPath }) {
             >
               Contact Us
             </Link>
-            <Link
-              className="text-xs font-semibold text-brand-gold pt-2"
-              to="/admin"
-              onClick={onClose}
-            >
-              Admin Dashboard
-            </Link>
+
           </nav>
         </div>
 

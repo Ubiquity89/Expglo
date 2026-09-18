@@ -1,11 +1,11 @@
-﻿import React, { useState } from "react";
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import MobileMenu from "./MobileMenu";
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
-  const currentPath = location.pathname.replace(".html", "").toLowerCase();
+  const currentPath = location.pathname.toLowerCase();
 
   const isActive = (path) => {
     if (path === "/" && (currentPath === "" || currentPath === "/")) return true;

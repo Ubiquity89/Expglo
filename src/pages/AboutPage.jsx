@@ -12,7 +12,7 @@ export default function AboutPage() {
 
   return (
     <main>
-      <!-- Page Header Hero -->
+      {/* Page Header Hero */}
     <section
       className="py-16 lg:py-20 bg-gradient-to-r from-emerald-50/70 via-sky-50/40 to-amber-50/40 border-b border-slate-100"
     >
@@ -37,11 +37,17 @@ export default function AboutPage() {
       </div>
     </section>
 
-    <!-- Section 1 & 2: Who We Are & Our Story -->
+    {/* Section 1 & 2: Who We Are & Our Story */}
     <section className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-6 space-y-6">
+          <motion.div 
+            className="lg:col-span-6 space-y-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={fadeUp}
+          >
             <span
               className="text-xs font-extrabold tracking-widest text-brand-green uppercase"
               >WHO WE ARE</span
@@ -73,27 +79,37 @@ export default function AboutPage() {
                 Opportunities."
               </p>
             </div>
-          </div>
-          <div className="lg:col-span-6">
-            <div
+          </motion.div>
+          <motion.div 
+            className="lg:col-span-6"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+            variants={fadeUp}
+          >
+            <motion.div
               className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-slate-50"
+              whileHover={{ scale: 1.02, rotate: -1 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
             >
-              <img
+              <motion.img
                 alt="EXPGLO Campus Experience"
                 className="w-full h-[440px] object-cover"
                 src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80"
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.4 }}
               />
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>
 
-    <!-- Section 3 & 4: Vision & Mission -->
+    {/* Section 3 & 4: Vision & Mission */}
     <section className="py-20 bg-slate-50" id="vision">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <!-- Vision -->
+          {/* Vision */}
           <div
             className="bg-white rounded-3xl p-10 border border-slate-100 shadow-md space-y-4"
           >
@@ -132,7 +148,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <!-- Mission -->
+          {/* Mission */}
           <div
             className="bg-white rounded-3xl p-10 border border-slate-100 shadow-md space-y-4"
           >
@@ -167,7 +183,7 @@ export default function AboutPage() {
       </div>
     </section>
 
-    <!-- Section 5: Core Values -->
+    {/* Section 5: Core Values */}
     <section className="py-24 bg-white" id="values">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
@@ -275,7 +291,7 @@ export default function AboutPage() {
       </div>
     </section>
 
-    <!-- Section 7: Our Ecosystem Architecture -->
+    {/* Section 7: Our Ecosystem Architecture */}
     <section className="py-24 bg-white" id="ecosystem">
       <div
         className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-12"
@@ -345,7 +361,7 @@ export default function AboutPage() {
       </div>
     </section>
 
-    <!-- FOOTER (PRD Section16 - Dark green background, 5 Columns) -->
+    {/* FOOTER (PRD Section16 - Dark green background, 5 Columns) */}
       <PartnershipCTA />
     </main>
   );
